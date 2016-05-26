@@ -1,7 +1,8 @@
 Ansible php-fpm role
 =========
+[![Build Status](https://travis-ci.org/spitfast/ansible-php-fpm-role.svg?branch=master)](https://travis-ci.org/spitfast/ansible-php-fpm-role)
 
-A brief description of the role goes here.
+An ansible role for php-fpm installation and configuration.
 
 Requirements
 ------------
