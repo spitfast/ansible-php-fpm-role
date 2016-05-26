@@ -1,2 +1,12 @@
 ---
-# tasks file for php-fpm
+
+- name: Add apt repository
+  apt_repository: repo='ppa:ondrej/php'
+
+- name: Update apt cache
+  apt: update_cache=yes
+  become: true
+
+- name: Install php-fpm package
+  apt: pkg={{ php_fpm_package }} state=present
+  become: true
