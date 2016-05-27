@@ -1,4 +1,5 @@
 ---
 
-- name: restart php-fpm
-  service: name={{ php_fpm_package }} state=restarted
+- name: start php-fpm
+  become: true
+  service: name={{ php_fpm_package }} state=started
