@@ -1,6 +1,6 @@
 galaxy_info:
   author: Gordon Shumway
-  description: Install and configure php-fpm.
+  description: Install php-fpm.
   license: MIT
 
   min_ansible_version: 1.9
