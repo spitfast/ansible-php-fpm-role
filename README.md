@@ -14,6 +14,9 @@ Role Variables
 
 ```yaml
 php_fpm_package: php7.0-fpm
+php_fpm_extensions:
+  - php7.0-mysql
+  - php7.0-common
 ```
 
 Dependencies
@@ -26,10 +29,18 @@ Example Playbook
 
 ```yaml
 ---
-- hosts: servers
+- hosts: localhost
   roles:
    - spitfast.php-fpm
 ```
+
+Usage
+----
+Create playbook (described in the section above) and run one of the following commands:
+
+`$ ansible-playbook playbook.yml` - to run all tasks in role
+
+`$ ansible-playbook playbook.yml --tags=php-extensions` - to install php extensions listed in **{{php_fpm_extensions}}** variable (see **Role Variables** section)
 
 License
 -------

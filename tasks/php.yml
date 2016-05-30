@@ -1,0 +1,7 @@
+---
+
+- name: Install php-fpm package
+  apt: pkg={{ php_fpm_package }} state=present
+  become: true
+  notify:
+    - start php-fpm

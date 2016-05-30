@@ -1,14 +1,17 @@
 ---
 
-- name: Add apt repository
-  apt_repository: repo='ppa:ondrej/php'
-  become: true
+- include: apt.yml
+  tags: [php, php-extensions]
 
-- name: Update apt cache
-  apt: update_cache=yes
-  become: true
+- include: php.yml
+  tags: [php]
 
-- name: Install php-fpm package
-  apt: pkg={{ php_fpm_package }} state=present
-  become: true
-  notify: start php-fpm
+- name: Check if {{ php_fpm_package }} is installed
+  command: dpkg-query -l {{ php_fpm_package }}
+  register: dpkg_result
+  ignore_errors: true
+  tags: [php-extensions]
+
+- include: extensions.yml
+  when: dpkg_result.stdout.find('no packages found') == -1
+  tags: [php-extensions]

@@ -3,3 +3,7 @@
 - name: start php-fpm
   become: true
   service: name={{ php_fpm_package }} state=started
+
+- name: restart php-fpm
+  become: true
+  service: name={{ php_fpm_package }} state=restarted
