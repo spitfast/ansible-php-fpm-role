@@ -13,10 +13,11 @@ Role Variables
 --------------
 
 ```yaml
-php_fpm_package: php7.0-fpm
-php_fpm_extensions:
-  - php7.0-mysql
-  - php7.0-common
+php_branch_version: 7.0
+php_fpm_package: php{{ php_branch_version }}-fpm
+php_fpm_extensions: # List of extensions without php version prefix.
+  - cli
+  - common
 ```
 
 Dependencies

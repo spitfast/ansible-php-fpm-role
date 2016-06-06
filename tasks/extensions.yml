@@ -2,7 +2,7 @@
 
 - name: Install php extensions
   become: true
-  apt: pkg={{ item }} state=present
+  apt: pkg=php{{ php_branch_version }}-{{ item }} state=present
   with_items: "{{ php_fpm_extensions }}"
 
 - name: Restart {{ php_fpm_package }}
