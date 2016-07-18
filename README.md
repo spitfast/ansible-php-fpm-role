@@ -34,7 +34,16 @@ Example Playbook
   roles:
    - spitfast.php-fpm
 ```
-
+Or you can pass variables to playbook to override default vars. For example, for php 5.6
+```yaml
+---
+- hosts: all
+  roles:
+    - {
+        role: spitfast.php-fpm,
+        php_branch_version: 5.6
+      }
+```
 Usage
 ----
 Create playbook (described in the section above) and run one of the following commands:
